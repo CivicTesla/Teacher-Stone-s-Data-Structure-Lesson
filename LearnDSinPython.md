@@ -40,7 +40,7 @@ Github: [https://github.com/PegasusWang/python\_data\_structures\_and\_algorithm
 
 一人编写程序，一人进行代码审查（可轮流进行）
 
-讲笔记、程序push至github保存
+将笔记、程序push至github保存
 
 ## 主题
 
