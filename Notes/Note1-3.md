@@ -10,3 +10,5 @@
 
 ![Methods Provided by Sets in Python](https://github.com/CivicTesla/Teacher-Stone-s-Data-Structure-Lesson/blob/master/img/005.png)
 
+![Methods Provided by Dictionaries in Python](https://github.com/CivicTesla/Teacher-Stone-s-Data-Structure-Lesson/blob/master/img/006.png)
+
