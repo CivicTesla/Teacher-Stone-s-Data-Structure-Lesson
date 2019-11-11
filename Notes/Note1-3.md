@@ -1,4 +1,4 @@
-####Built-in Collection Data Types
+#### Tables to Check
 
 ![Operations on Any Sequence in Python](https://github.com/CivicTesla/Teacher-Stone-s-Data-Structure-Lesson/blob/master/img/001.png)
 
