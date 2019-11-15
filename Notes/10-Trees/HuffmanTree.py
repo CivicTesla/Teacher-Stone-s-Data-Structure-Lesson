@@ -75,6 +75,8 @@ def walk_tree(node, coding_stack, coding_table):
 # PROMBLEM HERE: AttributeError: 'NoneType' object has no attribute 'left'
 # determine whether a node is a leaf
 def is_leaf(node):
+    if node == None:
+        return False
     if node.left == None and node.right == None:
         return True
     return False
