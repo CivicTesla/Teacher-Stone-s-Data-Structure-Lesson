@@ -4,34 +4,34 @@ class HuffmanNode(object):
         self.right = right
 
 def create_tree(frequencies):
-    while len(frequencies) > 1:           # 2. While there is more than one node
-                                          # 2a. remove two highest nodes
-        l, r = find_two_highest_feq(frequencies) 
+    while len(frequencies) > 1:      # 2. While there is more than one node
+                                     # 2a. remove two highest nodes
+        l, r = find_two_lowest_feq(frequencies) 
         combi_freq = l[0] + r[0]
-                                          # 2b. create internal node with children
+                                     # 2b. create internal node with children
         parent_node = HuffmanNode(l, r)
-                                          # 2c. add new node to queue
+                                     # 2c. add new node to queue
         combi_freq_item = (combi_freq, parent_node)
         frequencies.append(combi_freq_item)
-    return frequencies[0]                 # 3. tree is complete - return root node
+    return frequencies[0]            # 3. tree is complete - return root node
 
-# find two highest frequencies
+# find two lowest frequencies
 # and REMOVE THEM FROM the list
 # and combine them to a new freqency (also combine the letters)
-def find_two_highest_feq(frequency_list):
-    first_highest_feq = find_highest_feq(frequency_list)
-    frequency_list.remove(first_highest_feq)
-    second_highest_feq = find_highest_feq(frequency_list)
-    frequency_list.remove(second_highest_feq)
+def find_two_lowest_feq(frequency_list):
+    first_lowest_feq = find_lowest_feq(frequency_list)
+    frequency_list.remove(first_lowest_feq)
+    second_lowest_feq = find_lowest_feq(frequency_list)
+    frequency_list.remove(second_lowest_feq)
     
-    return first_highest_feq, second_highest_feq
+    return first_lowest_feq, second_lowest_feq
 
-def find_highest_feq(frequency_list):
-    max_frequency = frequency_list[0]
+def find_lowest_feq(frequency_list):
+    min_frequency = frequency_list[0]
     for frequency_item in frequency_list:
-        if float(frequency_item[0]) > float(max_frequency[0]):
-            max_frequency = frequency_item
-    return max_frequency
+        if float(frequency_item[0]) < float(min_frequency[0]):
+            min_frequency = frequency_item
+    return min_frequency
 
 # Recursively walk the tree down to the leaves,
 # assigning a code value to each symbol
@@ -62,11 +62,10 @@ if __name__ == '__main__':
     (0.095, 'q'), (5.987, 'r'), (6.327, 's'), (9.056, 't'), 
     (2.758, 'u'), (1.037, 'v'), (2.365, 'w'), (0.150, 'x'),
     (1.974, 'y'), (0.074, 'z') ]
-
+   
     root_node = create_tree(freq)
     
     code = walk_tree(root_node)
-    
-    for item in code:
+
+    for item in sorted(code.keys()):
         print (item, code[item])
-    #print(coding_table)

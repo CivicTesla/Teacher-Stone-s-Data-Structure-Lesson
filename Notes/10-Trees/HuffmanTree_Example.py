@@ -17,6 +17,7 @@ freq = [
     (2.758, 'u'), (1.037, 'v'), (2.365, 'w'), (0.150, 'x'),
     (1.974, 'y'), (0.074, 'z') ]
 
+
 def create_tree(frequencies):
     p = queue.PriorityQueue()
     for value in frequencies:    # 1. Create a leaf node for each symbol
@@ -44,5 +45,8 @@ def walk_tree(node, prefix="", code={}):
     return(code)
 
 code = walk_tree(node)
-for i in sorted(freq, reverse=True):
-    print(i[1], '{:6.2f}'.format(i[0]), code[i[1]])
+
+for item in sorted(code.keys()):
+    print (item, code[item])
+#for i in sorted(freq, reverse=True):
+#    print(i[1], '{:6.2f}'.format(i[0]), code[i[1]])
